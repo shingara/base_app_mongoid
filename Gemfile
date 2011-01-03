@@ -6,3 +6,4 @@ gem 'mongoid',
 gem 'haml'
 gem "haml-rails"
 gem 'devise'
+gem 'bson_ext'
