@@ -5,3 +5,4 @@ gem 'mongoid',
   :git => 'git://github.com/mongoid/mongoid.git'
 gem 'haml'
 gem "haml-rails"
+gem 'devise'

@@ -45,5 +45,10 @@ module BaseApp
     config.generators do |g|
       g.orm :mongoid
     end
+
+    ##
+    # Personal configuration, can be override in different environement
+    config.host = 'localhost:3000'
+
   end
 end
