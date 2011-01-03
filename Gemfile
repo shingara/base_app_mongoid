@@ -11,5 +11,7 @@ gem 'bson_ext'
 gem "nifty-generators", :group => :development
 
 group :test, :development do
+  gem 'factory_girl',
+    :git => 'git://github.com/thoughtbot/factory_girl.git'
   gem "rspec-rails"
 end
