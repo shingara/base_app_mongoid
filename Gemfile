@@ -9,3 +9,7 @@ gem 'devise'
 gem 'bson_ext'
 
 gem "nifty-generators", :group => :development
+
+group :test, :development do
+  gem "rspec-rails"
+end
