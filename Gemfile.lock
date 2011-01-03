@@ -63,6 +63,7 @@ GEM
     mime-types (1.16)
     mongo (1.1.5)
       bson (>= 1.1.5)
+    nifty-generators (0.4.3)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -100,4 +101,5 @@ DEPENDENCIES
   haml
   haml-rails
   mongoid!
+  nifty-generators
   rails (= 3.0.3)

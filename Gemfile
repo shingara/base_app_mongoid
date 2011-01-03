@@ -7,3 +7,5 @@ gem 'haml'
 gem "haml-rails"
 gem 'devise'
 gem 'bson_ext'
+
+gem "nifty-generators", :group => :development
