@@ -8,4 +8,6 @@ class User
 
   field :login, :type => String
 
+  validates_uniqueness_of :login
+
 end
