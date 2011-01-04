@@ -9,5 +9,6 @@ class User
   field :login, :type => String
 
   validates_uniqueness_of :login
+  validates_presence_of :login
 
 end

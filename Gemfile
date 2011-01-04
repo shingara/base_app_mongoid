@@ -5,7 +5,7 @@ gem 'mongoid',
   :git => 'git://github.com/mongoid/mongoid.git'
 gem 'haml'
 gem "haml-rails"
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'bson_ext'
 gem 'inherited_resources'
 

@@ -1,6 +1,5 @@
 BaseApp::Application.routes.draw do
-  resources :users, :except => [:new]
-
   devise_for :users
+  resources :users, :except => [:new]
   root :to => 'users#index'
 end
