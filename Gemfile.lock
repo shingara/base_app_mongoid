@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: 559e5cbbc1461fa507ab371028626d1d161bd0d8
+  revision: 5f5a39822fdfa315cae66ec4d0e608c570508b17
   specs:
     mongoid (2.0.0.rc.1)
       activemodel (~> 3.0)
@@ -82,7 +82,7 @@ GEM
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-    mail (2.2.13)
+    mail (2.2.14)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
