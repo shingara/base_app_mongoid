@@ -11,4 +11,14 @@ class User
   validates_uniqueness_of :login
   validates_presence_of :login
 
+  ##
+  # Methode use by Devise to find user by conditions.
+  # We accept authentication by email or login
+  #
+  def self.find_for_database_authentication(conditions)
+    self.where({ :login => conditions[:email] }).first ||
+      self.where({ :email => conditions[:email] }).first
+  end
+
+
 end

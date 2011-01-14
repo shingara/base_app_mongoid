@@ -177,6 +177,6 @@ DEPENDENCIES
   mongoid!
   mongoid-rspec!
   nifty-generators
-  rails (= 3.0.3)
+  rails
   rspec-rails
   steak

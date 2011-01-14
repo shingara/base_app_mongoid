@@ -5,10 +5,29 @@ require 'capybara/rails'
 module Steak::Capybara
   include Rack::Test::Methods
   include Capybara
-  
+
   def app
     ::Rails.application
   end
+
+  ##
+  # Logged user and check if really logged
+  def logged_with(user, password='tintinpouet')
+    visit "/"
+    click_link 'sign in'
+    within('h2') do
+      page.should have_content('Sign in')
+    end
+
+    within('#user_new') do
+      fill_in 'user_email', :with => user.login
+      fill_in 'user_password', :with => password
+    end
+
+    click_button('user_submit')
+    page.should have_content("Signed in as #{user.login}")
+  end
+
 end
 
 RSpec.configuration.include Steak::Capybara, :type => :acceptance
