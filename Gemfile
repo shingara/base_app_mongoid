@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails'
 gem 'mongoid',
   :git => 'git://github.com/mongoid/mongoid.git'
 gem 'haml'
@@ -13,6 +13,7 @@ gem "nifty-generators", :group => :development
 
 group :test, :development do
   gem "rspec-rails"
+  gem 'steak'
 end
 
 group :test do
@@ -21,7 +22,6 @@ group :test do
     :branch => 'mongoid-2.0.0.rc1'
   gem 'factory_girl',
     :git => 'git://github.com/thoughtbot/factory_girl.git'
-  gem "cucumber-rails"
   gem "database_cleaner"
   gem "capybara"
 end
