@@ -7,6 +7,8 @@ describe User do
   it { should have_field(:email).of_type(String) }
   it { should have_field(:login).of_type(String) }
 
+  it { should embed_many(:user_tokens).of_type(UserToken) }
+
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:login) }
   it { should validate_uniqueness_of(:email) }
@@ -24,6 +26,18 @@ describe User do
     end
     it 'should return nothing if not good login or email' do
       User.find_for_database_authentication(:email => 'hello').should be_nil
+    end
+  end
+
+  describe "validation" do
+    it 'should not have 2 user with same provider/uid' do
+      u = Factory(:user)
+      u.user_tokens.create(:provider => 'twitter', :uid => '1234')
+      u.save
+
+      u = Factory(:user)
+      u.user_tokens.build(:provider => 'twitter', :uid => '1234')
+      u.should_not be_valid
     end
   end
 end

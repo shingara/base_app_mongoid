@@ -46,9 +46,9 @@ module BaseApp
       g.orm :mongoid
     end
 
-    ##
-    # Personal configuration, can be override in different environement
-    config.host = 'localhost:3000'
+    YAML::load(ERB.new(IO.read(Rails.root.join('config/config.yml'))).result)[Rails.env].symbolize_keys.each do |key, value|
+      config.send "#{key}=", value
+    end
 
   end
 end

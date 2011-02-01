@@ -1,0 +1,15 @@
+defaults: &defaults
+  twitter:
+    app_id: "Mu8zLUwRSKM0fK7z7h2zlQ"
+    app_secret: "EioBADnKkHgcdLLFN6HRDCIxyiJaj2aTuYnuJkLHh0"
+  host: "localhost:3000"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
