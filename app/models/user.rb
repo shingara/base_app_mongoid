@@ -4,10 +4,23 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable,
          :omniauthable
 
   field :login, :type => String
+
+  validates_presence_of :login
+  validates_uniqueness_of :login, :email, :allow_blank => true
+  validates_format_of :login,
+    :with => /^[-\w\._]+$/i,
+    :allow_blank => true,
+    :message => "should only contain letters, numbers, or .-_"
+  validates_format_of :email,
+    :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i,
+    :allow_blank => true
+  validates_presence_of :password, :if => :password_required?
+  validates_confirmation_of :password
+  validates_length_of :password, :minimum => 4, :allow_blank => true
 
   attr_accessible :login, :email, :password, :password_confirmation, :remember_me
 
@@ -44,8 +57,10 @@ class User
     self.login = omniauth['user_info']['name'] if login.blank?
     self.login = omniauth['user_info']['nickname'] if login.blank?
     user_tokens.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
-    #self.confirm!# unless user.email.blank?
   end
 
+  def password_required?
+    new_record? && user_tokens.empty?
+  end
 
 end

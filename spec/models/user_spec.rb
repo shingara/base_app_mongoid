@@ -9,7 +9,6 @@ describe User do
 
   it { should embed_many(:user_tokens).of_type(UserToken) }
 
-  it { should validate_presence_of(:email) }
   it { should validate_presence_of(:login) }
   it { should validate_uniqueness_of(:email) }
   it { should validate_uniqueness_of(:login) }

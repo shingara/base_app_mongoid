@@ -7,7 +7,7 @@ class UserToken
   validate :should_be_uniq
 
   def should_be_uniq
-    errors.add(:base, 'need to be uniq') unless User.where('user_tokens.provider' => self.provider,
-                                                           'user_tokens.uid' => self.uid).first
+    errors.add(:base, 'need to be uniq') if User.where('user_tokens.provider' => self.provider,
+                                                       'user_tokens.uid' => self.uid).first
   end
 end
