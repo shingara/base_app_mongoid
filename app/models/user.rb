@@ -52,11 +52,18 @@ class User
   def apply_omniauth(omniauth)
     self.login = omniauth['user_info']['name'] if login.blank?
     self.login = omniauth['user_info']['nickname'] if login.blank?
-    user_tokens.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    user_tokens.build(:provider => omniauth['provider'],
+                      :token => omniauth['credentials']['token'],
+                      :secret => omniauth['credentials']['secret'],
+                      :uid => omniauth['uid'])
   end
 
   def password_required?
     new_record? && user_tokens.empty?
+  end
+
+  def tweets
+    user_tokens.where(:provider => 'twitter').first.tweets
   end
 
 end

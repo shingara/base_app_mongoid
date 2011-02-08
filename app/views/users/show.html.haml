@@ -7,6 +7,14 @@
   %strong Email:
   = @user.email
 
+%h2
+  Last tweet
+
+%ul
+  - @user.tweets.each do |tweet|
+    %li
+      = tweet.text
+
 %p
   = link_to "Edit", edit_user_path(@user)
   |

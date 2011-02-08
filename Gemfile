@@ -6,6 +6,7 @@ gem "haml-rails"
 gem 'bson_ext'
 gem 'inherited_resources', '=1.2.0'
 gem 'omniauth'
+gem 'twitter'
 
 gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
