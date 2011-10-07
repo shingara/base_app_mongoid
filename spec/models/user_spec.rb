@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
   it "should be valid" do
-    Factory.build(:user).should be_valid
+    Fabricate.build(:user).should be_valid
   end
   it { should have_field(:email).of_type(String) }
   it { should have_field(:login).of_type(String) }
@@ -14,7 +14,7 @@ describe User do
   it { should validate_uniqueness_of(:login) }
 
   describe ".find_for_database_authentication" do
-    let(:user) { Factory(:user) }
+    let(:user) { Fabricate(:user) }
 
     it 'should return user by email' do
       User.find_for_database_authentication(:email => user.email).should == user
@@ -30,11 +30,11 @@ describe User do
 
   describe "validation" do
     it 'should not have 2 user with same provider/uid' do
-      u = Factory(:user)
+      u = Fabricate(:user)
       u.user_tokens.create(:provider => 'twitter', :uid => '1234')
       u.save
 
-      u = Factory(:user)
+      u = Fabricate(:user)
       u.user_tokens.build(:provider => 'twitter', :uid => '1234')
       u.should_not be_valid
     end

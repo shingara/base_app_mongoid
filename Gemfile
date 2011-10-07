@@ -22,5 +22,6 @@ group :test do
   gem "capybara"
 
   gem 'mongoid-rspec'
-  gem 'factory_girl'
+  gem 'fabrication'
+  gem 'randexp'
 end

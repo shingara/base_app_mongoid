@@ -2,12 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Login Feature" do
 
-  let(:email) { Factory.next(:email) }
-  let(:login) { Factory.next(:login) }
+  let(:email) { /[:email:]/.gen }
+  let(:login) { /\w+/.gen }
   let(:shingara_user) {
     u = User.where(:login => 'shingara').first
     unless u
-      u = Factory(:user, :login => 'shingara')
+      u = Fabricate(:user, :login => 'shingara')
     end
     u
   }

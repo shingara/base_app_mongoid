@@ -44,6 +44,8 @@ module BaseApp
 
     config.generators do |g|
       g.orm :mongoid
+      g.test_framework :rspec, :fixture => true
+      g.fixture_replacement :fabrication
     end
 
     YAML::load(ERB.new(IO.read(Rails.root.join('config/config.yml'))).result)[Rails.env].symbolize_keys.each do |key, value|
