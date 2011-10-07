@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 3.0.3'
 gem 'haml'
 gem "haml-rails"
 gem 'bson_ext'
@@ -8,8 +8,8 @@ gem 'inherited_resources', '=1.2.0'
 gem 'omniauth'
 gem 'twitter'
 
-gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'mongoid', '~> 2.1.0' # the 2.2.x version need MongoDB 2.0.0 still in beta
+gem 'devise'
 
 group :test, :development do
   gem "rspec-rails"
@@ -21,6 +21,6 @@ group :test do
   gem "database_cleaner"
   gem "capybara"
 
-  gem 'mongoid-rspec', :git => 'git://github.com/durran/mongoid-rspec.git'
-  gem 'factory_girl', :git => 'git://github.com/thoughtbot/factory_girl.git'
+  gem 'mongoid-rspec'
+  gem 'factory_girl'
 end
