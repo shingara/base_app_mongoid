@@ -16,7 +16,7 @@ module Steak::Capybara
     visit "/"
     click_link 'sign in'
     within('h2') do
-      page.should have_content('Sign in')
+      page.should have_content(I18n.t('devise.sessions.new.title_h2'))
     end
 
     within('#user_new') do
@@ -24,7 +24,7 @@ module Steak::Capybara
       fill_in 'user_password', :with => password
     end
 
-    click_button('user_submit')
+    click_button(I18n.t('devise.sessions.new.sign_in'))
     page.should have_content("Signed in as #{user.login}")
   end
 

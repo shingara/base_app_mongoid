@@ -2,22 +2,22 @@
 
 %p
   %strong Login:
-  = @user.login
+  = user.login
 %p
   %strong Email:
-  = @user.email
+  = user.email
 
 %h2
   Last tweet
 
 %ul
-  - @user.tweets.each do |tweet|
+  - user.tweets.each do |tweet|
     %li
       = tweet.text
 
 %p
-  = link_to "Edit", edit_user_path(@user)
+  = link_to "Edit", edit_user_path(user)
   |
-  = link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete
   |
   = link_to "View All", users_path

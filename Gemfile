@@ -1,10 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.3'
+RAILS_VERSION = '~> 3.1.0'
+
+gem 'activesupport',      RAILS_VERSION, :require => 'active_support'
+gem 'actionpack',         RAILS_VERSION, :require => 'action_pack'
+gem 'actionmailer',       RAILS_VERSION, :require => 'action_mailer'
+gem 'railties',           RAILS_VERSION, :require => 'rails'
+
 gem 'haml'
 gem "haml-rails"
 gem 'bson_ext'
-gem 'inherited_resources', '=1.2.0'
+gem 'decent_exposure'
 gem 'omniauth'
 gem 'twitter'
 
@@ -20,6 +26,7 @@ end
 group :test do
   gem "database_cleaner"
   gem "capybara"
+  gem 'launchy'
 
   gem 'mongoid-rspec'
   gem 'fabrication'

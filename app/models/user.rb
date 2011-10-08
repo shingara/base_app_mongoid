@@ -62,8 +62,16 @@ class User
     new_record? && user_tokens.empty?
   end
 
+  def twitter_user_tokens
+    user_tokens.where(:provider => 'twitter').first
+  end
+
   def tweets
-    user_tokens.where(:provider => 'twitter').first.tweets
+    if twitter_user_tokens
+      twitter_user_tokens.tweets
+    else
+      []
+    end
   end
 
 end

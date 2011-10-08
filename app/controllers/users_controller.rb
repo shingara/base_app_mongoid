@@ -1,3 +1,4 @@
-class UsersController < InheritedResources::Base
-  actions :all, :except => [:new]
+class UsersController < ApplicationController
+  expose(:user)
+  expose(:users) { User.all }
 end

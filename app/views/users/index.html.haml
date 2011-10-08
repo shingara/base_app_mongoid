@@ -4,10 +4,10 @@
   %tr
     %th Login
     %th Email
-  - for user in @users
+  - users.each do |u|
     %tr
-      %td= user.login
-      %td= user.email
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= u.login
+      %td= u.email
+      %td= link_to 'Show', u
+      %td= link_to 'Edit', edit_user_path(u)
+      %td= link_to 'Destroy', u, :confirm => 'Are you sure?', :method => :delete

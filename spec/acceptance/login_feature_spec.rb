@@ -17,7 +17,7 @@ feature "Login Feature" do
     page.should_not have_content(login)
     click_link 'Sign up'
     within('h2') do
-      page.should have_content('Sign up')
+      page.should have_content(I18n.t('devise.registrations.new.title_h2'))
     end
 
     within('#user_new') do
@@ -28,7 +28,7 @@ feature "Login Feature" do
     end
 
     lambda do
-      click_button('user_submit')
+      click_button(I18n.t('devise.registrations.new.sign_up'))
     end.should change(User, :count).by(1)
     page.should have_content("Signed in as #{login}")
     within('table') do
@@ -55,7 +55,7 @@ feature "Login Feature" do
         fill_in 'user_password', :with => value[:password]
       end
 
-      click_button('user_submit')
+      click_button(I18n.t('devise.sessions.new.sign_in'))
       if value[:success]
         page.should have_content("Signed in as #{value[:login]}")
         click_link "Sign out"
