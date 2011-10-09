@@ -5,13 +5,18 @@ project with this stack :
 
  * Mongoid
  * Devise
- * Inherited_resources
+ * Decent Exposure
  * Simple_form
  * Omniauth
  * Haml
+ * Sass
 
 There are just a login with omniauth system from devise. And see how you can
 fetch the twitter list of user.
+
+A default CSS is define using the twitter bootstrap project
+
+I add jquery and rails.js javascript
 
 === Test ===
 
