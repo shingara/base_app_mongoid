@@ -16,6 +16,7 @@
         %h1.brand Base App
         %ul.secondary-nav.nav
           - if user_signed_in?
+            %li= link_to t('.sign_out'), destroy_session_path(current_user)
             %li
               = link_to current_user.login, user_url(current_user)
           - else

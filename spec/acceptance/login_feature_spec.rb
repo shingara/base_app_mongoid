@@ -15,7 +15,7 @@ feature "Login Feature" do
   scenario "Sign up" do
     visit "/"
     page.should_not have_content(login)
-    click_link 'Sign up'
+    click_link I18n.t('layouts.application.sign_up')
     within('h2') do
       page.should have_content(I18n.t('devise.registrations.new.title_h2'))
     end
@@ -30,11 +30,11 @@ feature "Login Feature" do
     lambda do
       click_button(I18n.t('devise.registrations.new.sign_up'))
     end.should change(User, :count).by(1)
-    page.should have_content("Signed in as #{login}")
+    page.should have_content(I18n.t('devise.registrations.signed_up'))
     within('table') do
       page.should have_content(login)
     end
-    click_link "Sign out"
+    click_link I18n.t('layouts.application.sign_out')
   end
 
   {
@@ -45,9 +45,9 @@ feature "Login Feature" do
     scenario sce do
       shingara_user
       visit "/"
-      click_link 'sign in'
+      click_link I18n.t('layouts.application.sign_in')
       within('h2') do
-        page.should have_content('Sign in')
+        page.should have_content(I18n.t('devise.sessions.new.title_h2'))
       end
 
       within('#user_new') do
@@ -57,10 +57,10 @@ feature "Login Feature" do
 
       click_button(I18n.t('devise.sessions.new.sign_in'))
       if value[:success]
-        page.should have_content("Signed in as #{value[:login]}")
-        click_link "Sign out"
+        page.should have_content(I18n.t('devise.sessions.signed_in'))
+        click_link I18n.t('layouts.application.sign_out')
       else
-        page.should_not have_content("Signed in as #{value[:login]}")
+        page.should_not have_content(I18n.t('devise.sessions.signed_in'))
       end
     end
 
@@ -68,9 +68,9 @@ feature "Login Feature" do
 
   scenario "can logout" do
     logged_with(shingara_user)
-    click_link "Sign out"
-    page.should have_content("sign in")
-    page.should_not have_content("Signed in as #{shingara_user.login}")
+    click_link I18n.t('layouts.application.sign_out')
+    page.should have_content(I18n.t('layouts.application.sign_in'))
+    page.should_not have_content(I18n.t('devise.sessions.signed_in'))
   end
 
 end

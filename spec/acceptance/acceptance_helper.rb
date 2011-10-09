@@ -14,7 +14,7 @@ module Steak::Capybara
   # Logged user and check if really logged
   def logged_with(user, password='tintinpouet')
     visit "/"
-    click_link 'sign in'
+    click_link I18n.t('layouts.application.sign_in')
     within('h2') do
       page.should have_content(I18n.t('devise.sessions.new.title_h2'))
     end
@@ -25,7 +25,7 @@ module Steak::Capybara
     end
 
     click_button(I18n.t('devise.sessions.new.sign_in'))
-    page.should have_content("Signed in as #{user.login}")
+    page.should have_content(I18n.t('devise.sessions.signed_in'))
   end
 
 end

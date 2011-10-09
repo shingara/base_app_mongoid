@@ -7,6 +7,6 @@
     = f.input :password
     = f.input :password_confirmation
   .actions
-    = f.button :submit, :class => 'btn primary'
+    = f.button :submit, :class => 'btn primary', :value => t('.sign_up')
     %br
     = render :partial => "devise/shared/links"
