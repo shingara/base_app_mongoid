@@ -32,7 +32,7 @@ SimpleForm.setup do |config|
   # config.wrapper_tag = :div
 
   # CSS class to add to all wrapper tags.
-  # config.wrapper_class = :input
+  config.wrapper_class = 'clearfix'
 
   # CSS class to add to the wrapper if the field has errors.
   # config.wrapper_error_class = :field_with_errors
@@ -56,7 +56,9 @@ SimpleForm.setup do |config|
   # config.label_class = nil
 
   # You can define the class to use on all forms. Default is simple_form.
-  # config.form_class = :simple_form
+  config.form_class = 'actions'
+  # Only on 2.0.0 version ( master now )
+  #config.button_class = 'btn primary'
 
   # Whether attributes are required by default (or not). Default is true.
   config.required_by_default = true
