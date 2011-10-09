@@ -17,6 +17,8 @@ gem 'twitter'
 gem 'mongoid', '~> 2.1.0' # the 2.2.x version need MongoDB 2.0.0 still in beta
 gem 'devise'
 
+gem 'simple_form'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
