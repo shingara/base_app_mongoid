@@ -60,6 +60,7 @@ en:
     application:
       sign_up: "Sign up"
       sign_in: "Sign in"
+      sign_in_with: "Sign in with %{provider}"
 
   simple_form:
     "yes": 'Yes'
